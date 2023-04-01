@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CEB0D3"
-    android:backgroundTint="#CEB0D3"
+    android:backgroundTint="@color/light_grey"
     tools:context=".AllowLocationData">
 
     <ImageView
@@ -17,14 +17,14 @@
         app:layout_constraintHorizontal_bias="0.019"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/gestinterim" />
+        app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/messageContainer"
         android:layout_width="357dp"
         android:layout_height="272dp"
         android:layout_marginTop="144dp"
-        android:background="#9D86C5"
+        android:background="@color/light_purple"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,7 +36,7 @@
         android:layout_marginTop="184dp"
         android:fontFamily="sans-serif-medium"
         android:text="GestInterim requests your authorization to access your location data."
-        android:textColor="#0B0A0B"
+        android:textColor="@color/dark_grey"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="328dp"
-        android:backgroundTint="#9E516B"
+        android:backgroundTint="@color/dark_purple"
         android:text="Refuse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.283"
@@ -59,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="328dp"
-        android:backgroundTint="#9E516B"
+        android:backgroundTint="@color/dark_purple"
         android:text="Accept"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.706"

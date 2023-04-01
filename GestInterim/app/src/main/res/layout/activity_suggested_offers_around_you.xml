@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CEB0D3"
-    android:backgroundTint="#CEB0D3"
+    android:backgroundTint="@color/light_grey"
     tools:context=".SuggestedOffersAroundYou">
 
     <ImageView
@@ -17,7 +17,7 @@
         app:layout_constraintHorizontal_bias="0.012"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/gestinterim" />
+        app:srcCompat="@drawable/logo" />
 
     <EditText
         android:id="@+id/QuickSearch"
