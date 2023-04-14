@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "880175529499",
+    "project_id": "gestinterim",
+    "storage_bucket": "gestinterim.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:880175529499:android:86c7de1d6c451fedb302be",
+        "android_client_info": {
+          "package_name": "com.example.gestinterim"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "880175529499-5r70o096a8sp9mjj2foc7tprdo3v6lo8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWfRQWa3Rjb_nfm8i64IdSLrWUwK10WZ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "880175529499-5r70o096a8sp9mjj2foc7tprdo3v6lo8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
