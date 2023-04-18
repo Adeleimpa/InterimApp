@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity { // Login activity
                 startActivity(i);
             }
         });
+
+        // test
     }
 }
 
