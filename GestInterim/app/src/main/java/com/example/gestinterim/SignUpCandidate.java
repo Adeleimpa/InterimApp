@@ -1,13 +1,25 @@
 package com.example.gestinterim;
 
+import static android.content.ContentValues.TAG;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SignUpCandidate extends AppCompatActivity {
 
@@ -18,6 +30,10 @@ public class SignUpCandidate extends AppCompatActivity {
     EditText phone_nr;
     EditText email;
     Button signup_button;
+    EditText password;
+    EditText confirm_password;
+
+    private FirebaseAuth mAuth;
 
 
 
@@ -33,6 +49,11 @@ public class SignUpCandidate extends AppCompatActivity {
         phone_nr = findViewById(R.id.PhoneNumber);
         email = findViewById(R.id.EMAIL);
         signup_button = findViewById(R.id.signUp);
+        password = findViewById(R.id.MDP);
+        confirm_password = findViewById(R.id.CONFIRMMDP);
+
+        String email_str = email.getText().toString();
+        String password_str = password.getText().toString();
 
         signup_button.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -54,6 +75,14 @@ public class SignUpCandidate extends AppCompatActivity {
 
         if (!isEmail(email)) {
             email.setError("Enter valid email!");
+        }
+
+        if (isEmpty(password)) {
+            password.setError("Empty password!");
+        }
+
+        if(password != confirm_password){
+            confirm_password.setError("Several passwords used!");
         }
     }
 
