@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity { // Login activity
                 if (user != null) {
                     getSupportActionBar().setTitle("Welcome, " + user.getDisplayName() + "!");
                 } else {
-
+                    // in case null user
                 }
             }
         };
