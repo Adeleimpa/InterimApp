@@ -8,6 +8,18 @@
     android:backgroundTint="@color/light_grey"
     tools:context=".ConfirmationCode">
 
+    <Button
+        android:id="@+id/validateCodeButton"
+        android:layout_width="136dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="372dp"
+        android:backgroundTint="@color/dark_purple"
+        android:text="Validate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imagelogo"
         android:layout_width="178dp"
@@ -83,4 +95,5 @@
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

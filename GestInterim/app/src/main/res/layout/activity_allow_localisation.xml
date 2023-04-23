@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_grey"
+    android:backgroundTint="@color/light_grey"
+    tools:context=".AllowLocalisation">
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="208dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/allowloc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Allow location data"
+        android:textColor="#040303"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="344dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="188dp"
+        android:background="@color/purple_200"
+        android:fontFamily="sans-serif-medium"
+        android:paddingTop="20dp"
+        android:text="GestInterim requests your authorization to access your location data"
+        android:textAlignment="center"
+        android:textColor="#050505"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/refusebutton"
+        android:layout_width="131dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="320dp"
+        android:backgroundTint="@color/teal_700"
+        android:text="Refuse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonallow"
+        android:layout_width="131dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="320dp"
+        android:backgroundTint="@color/teal_700"
+        android:text="Allow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.189"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
