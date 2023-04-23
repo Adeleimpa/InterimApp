@@ -24,7 +24,7 @@ public class Signing_up extends AppCompatActivity {
         candidate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Signing_up.this, SignUpCandidate.class);
+                Intent i = new Intent(Signing_up.this, CreateAccountActivity.class);
                 startActivity(i);
             }
         });
@@ -32,7 +32,7 @@ public class Signing_up extends AppCompatActivity {
         employer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Signing_up.this, SignUpCandidate.class);
+                Intent i = new Intent(Signing_up.this, CreateAccountActivity.class);
                 startActivity(i);
             }
         });
@@ -40,7 +40,7 @@ public class Signing_up extends AppCompatActivity {
         agency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Signing_up.this, SignUpCandidate.class);
+                Intent i = new Intent(Signing_up.this, CreateAccountActivity.class);
                 startActivity(i);
             }
         });
@@ -48,7 +48,7 @@ public class Signing_up extends AppCompatActivity {
         guest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Signing_up.this, SignUpCandidate.class);
+                Intent i = new Intent(Signing_up.this, CreateAccountActivity.class);
                 startActivity(i);
             }
         });
