@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity { // Login activity
                 }
             }
         };
+
+        // TODO menu principal de l'app, genre là ou y a le profil du user par exemple (ou bien liste des interims)
     }
 
     @Override
