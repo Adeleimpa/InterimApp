@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.gestinterim.LoginActivity"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:backgroundTint="@color/light_grey">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="197dp"
+        android:layout_height="53dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="7dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/logo" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -20,27 +31,23 @@
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
+            android:background="@color/light_purple"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
             android:layout_marginBottom="10dp"
-            android:textColor="@android:color/black"
-            android:textColorHint="@color/colorDivider"
             android:textSize="20sp" />
 
         <EditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
+            android:background="@color/light_purple"
             android:hint="Password"
             android:inputType="textPassword"
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
-            android:textColor="@android:color/black"
-            android:textColorHint="@color/colorDivider"
             android:textSize="20sp" />
 
 
@@ -50,15 +57,14 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="Log in"
-            android:background="@color/colorAccent"
+            android:backgroundTint="@color/dark_purple"
             android:layout_marginTop="15dp"
-            android:textColor="@color/colorTextIcons" />
+            android:textColor="#F8F4F4" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:textColor="@color/colorTextIcons"
             android:textStyle="bold"
             android:textSize="15sp"
             android:text="Don't have an account? Sign up here!"
@@ -70,8 +76,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:textColor="@color/colorPrimaryLight"
+        android:text="Login:"
         android:textSize="30dp"
         android:textStyle="bold"
         android:layout_above="@+id/linearLayout"
