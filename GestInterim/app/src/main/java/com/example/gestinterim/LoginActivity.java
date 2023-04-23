@@ -1,5 +1,6 @@
 package com.example.gestinterim;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,20 +30,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     TextView mRegisterTextView  ; // register if no account
 
     private FirebaseAuth mAuth;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         mEmailEditText = findViewById(R.id.emailEditText);
         mPasswordEditText = findViewById((R.id.passwordEditText));
-        mPasswordLoginButton = findViewById((R.id.passwordLoginButton));
+        mPasswordLoginButton = findViewById((R.id.loginButton));
 
         mRegisterTextView = findViewById(R.id.registerTextView);
         mRegisterTextView.setOnClickListener(this);
         mAuth = FirebaseAuth.getInstance();
         mPasswordLoginButton.setOnClickListener(this);
         mAuthListener = new FirebaseAuth.AuthStateListener() {
-
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();

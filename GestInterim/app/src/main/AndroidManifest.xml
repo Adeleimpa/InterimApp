@@ -67,8 +67,8 @@
             android:label="LoginActivity"
             android:theme="@style/Theme.GestInterim">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
@@ -76,11 +76,10 @@
             android:exported="false"
             android:label="@string/title_activity_create_account"
             android:theme="@style/Theme.GestInterim" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
