@@ -48,13 +48,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".SignUpCandidate"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".Signing_up"
             android:exported="false">
             <meta-data
@@ -72,18 +65,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.gestinterim.CreateAccountActivity"
+            android:name="com.example.gestinterim.SignUpCandidate"
             android:exported="false"
             android:label="@string/title_activity_create_account"
             android:theme="@style/Theme.GestInterim" />
 
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
     </application>
 
 </manifest>

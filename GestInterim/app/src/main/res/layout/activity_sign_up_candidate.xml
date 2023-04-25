@@ -143,7 +143,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/signUp"
+        android:id="@+id/signUpButton"
         android:layout_width="99dp"
         android:layout_height="48dp"
         android:layout_marginTop="600dp"
@@ -183,7 +183,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/firstname"
+        android:id="@+id/firstNameEditText"
         android:layout_width="210dp"
         android:layout_height="48dp"
         android:layout_marginTop="112dp"
@@ -243,7 +243,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/MDP"
+        android:id="@+id/passwordEditText"
         android:layout_width="206dp"
         android:layout_height="48dp"
         android:layout_marginTop="428dp"
@@ -268,14 +268,14 @@
         android:ems="10"
         android:hint="Phone number"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/EMAIL"
+        app:layout_constraintBottom_toTopOf="@+id/emailEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.796"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/CONFIRMMDP"
+        android:id="@+id/confirmPasswordEditText"
         android:layout_width="210dp"
         android:layout_height="48dp"
         android:layout_marginTop="484dp"
@@ -290,7 +290,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/EMAIL"
+        android:id="@+id/emailEditText"
         android:layout_width="209dp"
         android:layout_height="48dp"
         android:layout_marginBottom="312dp"
