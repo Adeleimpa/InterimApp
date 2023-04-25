@@ -25,11 +25,8 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
     private FirebaseAuth mAuth;
     private ProgressDialog mAuthProgressDialog;
     private String mName;
-    Button mCreateUserButton ;
-    EditText mNameEditText  ;
-    EditText mEmailEditText ;
-    EditText mPasswordEditText ;
-    EditText mConfirmPasswordEditText ;
+    Button mCreateUserButton, mAddFile ;
+    EditText mFirstNameEditText, mLastNameEditText, mEmailEditText, mPasswordEditText, mConfirmPasswordEditText, mNationalityEditText, mCityEditText, mPhoneEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +35,19 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
         mAuth = FirebaseAuth.getInstance();
         createAuthProgressDialog();
 
-        mCreateUserButton = findViewById(R.id.signUpButton) ;
-        mNameEditText = findViewById(R.id.firstNameEditText) ;
-        mEmailEditText = findViewById(R.id.emailEditText) ;
-        mPasswordEditText= findViewById(R.id.passwordEditText) ;
-        mConfirmPasswordEditText = findViewById(R.id.confirmPasswordEditText) ;
+        mCreateUserButton = findViewById(R.id.signUpButton);
+        mFirstNameEditText = findViewById(R.id.firstNameEditText);
+        mLastNameEditText = findViewById(R.id.lastname);
+        mNationalityEditText = findViewById(R.id.nationality);
+        mCityEditText = findViewById(R.id.city);
+        mPhoneEditText = findViewById(R.id.PhoneNumber);
+        mEmailEditText = findViewById(R.id.emailEditText);
+        mPasswordEditText= findViewById(R.id.passwordEditText);
+        mConfirmPasswordEditText = findViewById(R.id.confirmPasswordEditText);
+        mAddFile = findViewById(R.id.addfile);
 
         mCreateUserButton.setOnClickListener(this);
+
         createAuthStateListener();
     }
 
@@ -63,11 +66,11 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
     }
 
     private void createNewUser() {
-        final String name = mNameEditText.getText().toString().trim();
+        final String name = mFirstNameEditText.getText().toString().trim();
         final String email = mEmailEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
         String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
-        mName = mNameEditText.getText().toString().trim();
+        mName = mFirstNameEditText.getText().toString().trim();
         boolean validEmail = isValidEmail(email);
         boolean validName = isValidName(name);
         boolean validPassword = isValidPassword(password, confirmPassword);
@@ -151,7 +154,7 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
 
     private boolean isValidName(String name) {
         if (name.equals("")) {
-            mNameEditText.setError("Please enter your name");
+            mFirstNameEditText.setError("Please enter your name");
             return false;
         }
         return true;
