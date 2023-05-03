@@ -18,6 +18,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpCandidate extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = SignUpCandidate.class.getSimpleName();
@@ -25,8 +27,17 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
     private FirebaseAuth mAuth;
     private ProgressDialog mAuthProgressDialog;
     private String mName;
-    Button mCreateUserButton, mAddFile ;
+    Button mCreateUserButton;
     EditText mFirstNameEditText, mLastNameEditText, mEmailEditText, mPasswordEditText, mConfirmPasswordEditText, mNationalityEditText, mCityEditText, mPhoneEditText;
+    private DatabaseReference mDatabase;
+
+    String firstName;
+    String lastName;
+    String nationality;
+    String city;
+    String phoneNumber;
+    String password;
+    String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,17 +48,50 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
 
         mCreateUserButton = findViewById(R.id.signUpButton);
         mFirstNameEditText = findViewById(R.id.firstNameEditText);
-        mLastNameEditText = findViewById(R.id.lastname);
+        mLastNameEditText = findViewById(R.id.lastNameEditText);
         mNationalityEditText = findViewById(R.id.nationality);
-        mCityEditText = findViewById(R.id.city);
-        mPhoneEditText = findViewById(R.id.PhoneNumber);
+        mCityEditText = findViewById(R.id.cityEditText);
+        mPhoneEditText = findViewById(R.id.phoneNumberEditText);
         mEmailEditText = findViewById(R.id.emailEditText);
         mPasswordEditText= findViewById(R.id.passwordEditText);
         mConfirmPasswordEditText = findViewById(R.id.confirmPasswordEditText);
-        mAddFile = findViewById(R.id.addfile);
 
-        mCreateUserButton.setOnClickListener(this);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
+        //Tentative de stockage des données de chaque utilisateur dans la base de données firebase
+        //Pas d'erreur, mais ne sauvegarde rien dans la BDD
+        /*mCreateUserButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mFirstNameEditText.getText().toString() != " "){
+                    firstName = mFirstNameEditText.getText().toString();
+                }
+                if(mLastNameEditText.getText().toString() != " "){
+                    lastName =mLastNameEditText.getText().toString();
+                }
+                if(mNationalityEditText.getText().toString() != " "){
+                    nationality = mNationalityEditText.getText().toString();
+                }
+                if(mCityEditText.getText().toString() != " "){
+                    city = mCityEditText.getText().toString();
+                }
+                if(mPhoneEditText.getText().toString() != " "){
+                    phoneNumber = mPhoneEditText.getText().toString();
+                }
+                if(mEmailEditText.getText().toString() != " "){
+                    email = mEmailEditText.getText().toString();
+                }
+                if(mPasswordEditText.getText().toString() != " "){
+                    password = mPasswordEditText.getText().toString();
+                }
+
+                writeNewUser("user", firstName, lastName, nationality, city, phoneNumber, email, password);
+                Intent i = new Intent(SignUpCandidate.this, MyAccount.class);
+                startActivity(i);
+                finish();
+            }
+        });*/
+        onClick(mCreateUserButton);
         createAuthStateListener();
     }
 
@@ -133,6 +177,7 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
 
                 });
     }
+
     @Override
     public void onClick(View view) {
 
@@ -169,5 +214,10 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
             return false;
         }
         return true;
+    }
+
+    public void writeNewUser(String userId, String fname, String lname, String nat, String city, String tel, String email, String pw) {
+        User user = new User(fname, lname, nat, city, tel, email, pw);
+        mDatabase.child("users").child(userId).setValue(user);
     }
 }

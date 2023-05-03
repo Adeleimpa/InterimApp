@@ -1,16 +1,19 @@
 package com.example.gestinterim;
 
+import com.google.firebase.database.IgnoreExtraProperties;
+
+@IgnoreExtraProperties
 public class User {
 
-    private String firstname;
-    private String lastname;
-    private String nationality;
-    private String city;
-    private String tel;
-    private String mail;
-    private String password;
+    public String firstname;
+    public String lastname;
+    public String nationality;
+    public String city;
+    public String tel;
+    public String mail;
+    public String password;
 
-    public User(){};
+    public User(){}
 
     public User(String firstname, String lastname, String nationality, String city, String tel, String mail, String password){
       this.firstname = firstname;
@@ -20,5 +23,5 @@ public class User {
       this.tel = tel;
       this.mail = mail;
       this.password = password;
-    };
+    }
 }
