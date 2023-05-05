@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class SignUpCandidate extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = SignUpCandidate.class.getSimpleName();
@@ -31,13 +32,15 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
     EditText mFirstNameEditText, mLastNameEditText, mEmailEditText, mPasswordEditText, mConfirmPasswordEditText, mNationalityEditText, mCityEditText, mPhoneEditText;
     private DatabaseReference mDatabase;
 
-    String firstName;
+    User user_data;
+
+    /*String firstName;
     String lastName;
     String nationality;
     String city;
     String phoneNumber;
     String password;
-    String email;
+    String email;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,15 +115,22 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
     }
 
     private void createNewUser() {
-        final String name = mFirstNameEditText.getText().toString().trim();
-        final String email = mEmailEditText.getText().toString().trim();
+        String name = mLastNameEditText.getText().toString().trim();
+        String email = mEmailEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
         String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
+        String first_name = mFirstNameEditText.getText().toString().trim();
+        String nationality = mNationalityEditText.getText().toString().trim();
+        String city = mCityEditText.getText().toString().trim();
+        String tel = mPhoneEditText.getText().toString().trim();
+        
         mName = mFirstNameEditText.getText().toString().trim();
+        
         boolean validEmail = isValidEmail(email);
         boolean validName = isValidName(name);
         boolean validPassword = isValidPassword(password, confirmPassword);
         if (!validEmail || !validName || !validPassword) return;
+        
         mAuthProgressDialog.show();
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -128,6 +138,8 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         mAuthProgressDialog.dismiss();
                         if (task.isSuccessful()) {
+                            user_data = new User(first_name, name, nationality, city, tel ,email ,password);
+                            storeUserData();
                             Log.d(TAG, "Authentication successful");
                             createFirebaseUserProfile(task.getResult().getUser());
                         } else {
@@ -187,6 +199,13 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
             createNewUser();
         }
 
+    }
+
+    // Store user data in cloud firestore
+    private void storeUserData() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        db.collection("users").document(user_data.getMail()).set(user_data);
     }
 
     private boolean isValidEmail(String email) {
