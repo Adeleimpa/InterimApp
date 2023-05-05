@@ -24,4 +24,60 @@ public class User {
       this.mail = mail;
       this.password = password;
     }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
