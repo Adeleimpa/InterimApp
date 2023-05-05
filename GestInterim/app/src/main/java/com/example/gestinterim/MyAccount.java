@@ -57,6 +57,13 @@ public class MyAccount extends AppCompatActivity {
                             "\n\nEmail: " + user.getEmail() +
                             "\n\nPhone number: " + user_data.getTel() +
                             "\n\nCity: " + user_data.getCity() );
+                }else if(user_data.getType().equals("agency")){
+                    userDataTextView.setText("Agency: " + user_data.getAgencyName() +
+                            "\n\nService: " + user_data.getService() +
+                            "\n\nNational number: " + user_data.getNational_nr() +
+                            "\n\nEmail: " + user.getEmail() +
+                            "\n\nPhone number: " + user_data.getTel() +
+                            "\n\nCity: " + user_data.getCity() );
                 }
             }
         });
