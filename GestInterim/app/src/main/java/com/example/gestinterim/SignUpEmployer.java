@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 public class SignUpEmployer extends AppCompatActivity {
 
+    final String USER_TYPE = "employer";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

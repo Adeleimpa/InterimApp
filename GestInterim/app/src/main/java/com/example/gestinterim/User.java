@@ -12,10 +12,11 @@ public class User {
     public String tel;
     public String mail;
     public String password;
+    public String type;
 
     public User(){}
 
-    public User(String firstname, String lastname, String nationality, String city, String tel, String mail, String password){
+    public User(String firstname, String lastname, String nationality, String city, String tel, String mail, String password, String type){
       this.firstname = firstname;
       this.lastname = lastname;
       this.nationality = nationality;
@@ -23,6 +24,7 @@ public class User {
       this.tel = tel;
       this.mail = mail;
       this.password = password;
+      this.type = type;
     }
 
     public String getFirstname() {

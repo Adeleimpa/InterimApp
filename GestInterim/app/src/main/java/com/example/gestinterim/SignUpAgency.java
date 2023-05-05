@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 public class SignUpAgency extends AppCompatActivity {
 
+    final String USER_TYPE = "agency";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -33,14 +33,7 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
     private DatabaseReference mDatabase;
 
     User user_data;
-
-    /*String firstName;
-    String lastName;
-    String nationality;
-    String city;
-    String phoneNumber;
-    String password;
-    String email;*/
+    final String USER_TYPE = "candidate";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,39 +56,6 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
 
         mCreateUserButton.setOnClickListener(this);
 
-        //Tentative de stockage des données de chaque utilisateur dans la base de données firebase
-        //Pas d'erreur, mais ne sauvegarde rien dans la BDD
-        /*mCreateUserButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(mFirstNameEditText.getText().toString() != " "){
-                    firstName = mFirstNameEditText.getText().toString();
-                }
-                if(mLastNameEditText.getText().toString() != " "){
-                    lastName =mLastNameEditText.getText().toString();
-                }
-                if(mNationalityEditText.getText().toString() != " "){
-                    nationality = mNationalityEditText.getText().toString();
-                }
-                if(mCityEditText.getText().toString() != " "){
-                    city = mCityEditText.getText().toString();
-                }
-                if(mPhoneEditText.getText().toString() != " "){
-                    phoneNumber = mPhoneEditText.getText().toString();
-                }
-                if(mEmailEditText.getText().toString() != " "){
-                    email = mEmailEditText.getText().toString();
-                }
-                if(mPasswordEditText.getText().toString() != " "){
-                    password = mPasswordEditText.getText().toString();
-                }
-
-                writeNewUser("user", firstName, lastName, nationality, city, phoneNumber, email, password);
-                Intent i = new Intent(SignUpCandidate.this, MyAccount.class);
-                startActivity(i);
-                finish();
-            }
-        });*/
         onClick(mCreateUserButton);
         createAuthStateListener();
     }
@@ -138,7 +98,7 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         mAuthProgressDialog.dismiss();
                         if (task.isSuccessful()) {
-                            user_data = new User(first_name, name, nationality, city, tel ,email ,password);
+                            user_data = new User(first_name, name, nationality, city, tel ,email ,password, USER_TYPE);
                             storeUserData();
                             Log.d(TAG, "Authentication successful");
                             createFirebaseUserProfile(task.getResult().getUser());
@@ -198,7 +158,6 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
         if (view == mCreateUserButton) {
             createNewUser();
         }
-
     }
 
     // Store user data in cloud firestore
@@ -234,10 +193,5 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
             return false;
         }
         return true;
-    }
-
-    public void writeNewUser(String userId, String fname, String lname, String nat, String city, String tel, String email, String pw) {
-        User user = new User(fname, lname, nat, city, tel, email, pw);
-        mDatabase.child("users").child(userId).setValue(user);
     }
 }
