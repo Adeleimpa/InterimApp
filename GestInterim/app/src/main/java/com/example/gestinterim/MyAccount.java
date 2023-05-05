@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -21,6 +23,7 @@ public class MyAccount extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     TextView userDataTextView;
+    ImageView mInfos, mPreferences, mOffers, mApplications, mMessages;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -32,6 +35,11 @@ public class MyAccount extends AppCompatActivity {
         getSupportActionBar().setIcon(R.drawable.logo);
 
         userDataTextView = findViewById((R.id.UserDataText));
+        mInfos = findViewById(R.id.informationImage);
+        mPreferences = findViewById(R.id.preferencesImage);
+        mOffers = findViewById(R.id.offersImage);
+        mApplications = findViewById(R.id.applicationsImage);
+        mMessages = findViewById(R.id.messagesImage);
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
@@ -65,6 +73,56 @@ public class MyAccount extends AppCompatActivity {
                             "\n\nPhone number: " + user_data.getTel() +
                             "\n\nCity: " + user_data.getCity() );
                 }
+            }
+        });
+
+        mPreferences.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyAccount.this, Preferences.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        mMessages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyAccount.this, Messages.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        mApplications.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyAccount.this, Applications.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+       mOffers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyAccount.this, Offers.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        mInfos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyAccount.this, MyAccount.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
             }
         });
 
