@@ -9,15 +9,6 @@
     android:background="@color/colorPrimary"
     android:backgroundTint="@color/light_grey">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="197dp"
-        android:layout_height="53dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="7dp"
-        android:adjustViewBounds="true"
-        android:src="@drawable/logo" />
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"

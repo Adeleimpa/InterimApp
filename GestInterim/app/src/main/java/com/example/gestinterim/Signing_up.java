@@ -16,6 +16,9 @@ public class Signing_up extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signing_up);
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.logo);
+
         candidate = findViewById(R.id.candidatebutton);
         employer = findViewById(R.id.employerbutton);
         agency = findViewById(R.id.agencybutton);

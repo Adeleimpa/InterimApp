@@ -9,22 +9,11 @@
     tools:context=".SuggestedOffersAroundYou">
 
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="178dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
-
     <EditText
         android:id="@+id/QuickSearch"
         android:layout_width="354dp"
         android:layout_height="48dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="40dp"
         android:background="#9E9797"
         android:ems="10"
         android:hint="Quick search"
@@ -38,12 +27,12 @@
         android:id="@+id/searchIcon"
         android:layout_width="36dp"
         android:layout_height="34dp"
-        android:layout_marginTop="76dp"
-        app:tint="@color/black"
+        android:layout_marginTop="52dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.898"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/search_icon" />
+        app:srcCompat="@drawable/search_icon"
+        app:tint="@color/black" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

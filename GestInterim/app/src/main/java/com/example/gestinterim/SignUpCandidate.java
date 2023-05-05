@@ -39,6 +39,10 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_candidate);
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.logo);
+
         mAuth = FirebaseAuth.getInstance();
         createAuthProgressDialog();
 

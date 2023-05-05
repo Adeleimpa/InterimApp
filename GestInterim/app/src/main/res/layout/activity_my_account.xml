@@ -8,21 +8,11 @@
     android:backgroundTint="@color/light_grey"
     tools:context=".MyAccount">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="177dp"
-        android:layout_height="62dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
-
     <TextView
         android:id="@+id/myaccountview"
         android:layout_width="417dp"
         android:layout_height="77dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="48dp"
         android:background="#B17FBA"
         android:backgroundTint="@color/light_purple"
         android:fontFamily="sans-serif-black"
@@ -33,6 +23,7 @@
         android:textColor="#040303"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,9 +31,9 @@
         android:id="@+id/imageView4"
         android:layout_width="77dp"
         android:layout_height="79dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintHorizontal_bias="0.071"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/account_icon" />

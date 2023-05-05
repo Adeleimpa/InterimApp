@@ -16,6 +16,9 @@ public class ConfirmationCode extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmation_code);
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.logo);
+
         code = findViewById(R.id.editTextNumber);
         validate = findViewById(R.id.validateCodeButton);
         send_again = findViewById(R.id.sendAgainButton);
