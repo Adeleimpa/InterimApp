@@ -102,7 +102,8 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         mAuthProgressDialog.dismiss();
                         if (task.isSuccessful()) {
-                            user_data = new User(first_name, name, nationality, city, tel ,email ,password, USER_TYPE);
+                            user_data = new User(city, tel ,email ,password, USER_TYPE);
+                            user_data.setExtraCandidateData(first_name, name, nationality);
                             storeUserData();
                             Log.d(TAG, "Authentication successful");
                             createFirebaseUserProfile(task.getResult().getUser());

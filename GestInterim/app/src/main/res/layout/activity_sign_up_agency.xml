@@ -106,7 +106,7 @@
         android:background="@color/light_purple"
         android:ems="10"
         android:hint="Password"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -137,8 +137,8 @@
         android:id="@+id/phoneNumberAgencyEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="396dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="380dp"
         android:background="@color/light_purple"
         android:ems="10"
         android:hint="Phone number"
@@ -147,14 +147,14 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/contactAgencyEditText"
+        android:id="@+id/cityEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="268dp"
         android:layout_marginEnd="36dp"
         android:background="@color/light_purple"
         android:ems="10"
-        android:hint="Contact"
+        android:hint="City"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -173,12 +173,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/agencycontact"
+        android:id="@+id/city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="276dp"
-        android:text="Contact :"
+        android:text="City :"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -191,7 +191,7 @@
         android:background="@color/light_purple"
         android:ems="10"
         android:hint="Password"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

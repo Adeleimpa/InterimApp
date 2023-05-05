@@ -20,12 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class MyAccount extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    TextView firstNameTextView;
-    TextView lastNameTextView;
-    TextView emailTextView;
-    TextView phoneTextView;
-    TextView cityTextView;
-    TextView nationalityTextView;
+    TextView userDataTextView;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -36,12 +31,7 @@ public class MyAccount extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.logo);
 
-        firstNameTextView = findViewById((R.id.firstname));
-        lastNameTextView = findViewById((R.id.lastname));
-        emailTextView = findViewById((R.id.email));
-        phoneTextView = findViewById((R.id.phoneNr));
-        cityTextView = findViewById((R.id.city));
-        nationalityTextView = findViewById((R.id.nationality));
+        userDataTextView = findViewById((R.id.UserDataText));
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
@@ -53,12 +43,21 @@ public class MyAccount extends AppCompatActivity {
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 User user_data = documentSnapshot.toObject(User.class);
 
-                firstNameTextView.setText("First name: " + user_data.getFirstname());
-                lastNameTextView.setText("Last name: " + user_data.getLastname());
-                emailTextView.setText("Email: " + user.getEmail());
-                phoneTextView.setText("Phone number: " + user_data.getTel());
-                cityTextView.setText("City: " + user_data.getCity());
-                nationalityTextView.setText("Nationality: " + user_data.getNationality());
+                if(user_data.getType().equals("candidate")){
+                    userDataTextView.setText("First name: " + user_data.getFirstname() +
+                            "\n\nLast name: " + user_data.getLastname() +
+                            "\n\nEmail: " + user.getEmail() +
+                            "\n\nPhone number: " + user_data.getTel() +
+                            "\n\nCity: " + user_data.getCity() +
+                            "\n\nNationality: " + user_data.getNationality());
+                }else if(user_data.getType().equals("employer")){
+                    userDataTextView.setText("Enterprise: " + user_data.getEnterpriseName() +
+                            "\n\nService: " + user_data.getService() +
+                            "\n\nNational number: " + user_data.getNational_nr() +
+                            "\n\nEmail: " + user.getEmail() +
+                            "\n\nPhone number: " + user_data.getTel() +
+                            "\n\nCity: " + user_data.getCity() );
+                }
             }
         });
 
