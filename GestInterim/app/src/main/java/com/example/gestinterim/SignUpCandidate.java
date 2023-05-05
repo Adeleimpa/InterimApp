@@ -58,6 +58,8 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
+        mCreateUserButton.setOnClickListener(this);
+
         //Tentative de stockage des données de chaque utilisateur dans la base de données firebase
         //Pas d'erreur, mais ne sauvegarde rien dans la BDD
         /*mCreateUserButton.setOnClickListener(new View.OnClickListener() {
