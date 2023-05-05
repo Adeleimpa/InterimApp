@@ -204,7 +204,6 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
     // Store user data in cloud firestore
     private void storeUserData() {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-
         db.collection("users").document(user_data.getMail()).set(user_data);
     }
 
