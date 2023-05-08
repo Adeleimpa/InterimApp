@@ -5,97 +5,130 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_grey"
-    tools:context=".Messages">
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="214dp"
-        android:layout_height="87dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+    android:backgroundTint="@color/light_grey"
+    tools:context=".MyAccount">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="413dp"
-        android:layout_height="84dp"
-        android:layout_marginTop="116dp"
-        android:background="@color/light_purple"
+        android:id="@+id/myaccountview"
+        android:layout_width="417dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="48dp"
+        android:background="#B17FBA"
+        android:backgroundTint="@color/light_purple"
         android:fontFamily="sans-serif-black"
-        android:paddingStart="60dp"
-        android:paddingTop="15dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="70dp"
         android:text="My account"
-        android:textAlignment="center"
+        android:textAlignment="viewEnd"
+        android:textColor="#040303"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="88dp"
-        android:layout_height="81dp"
-        android:layout_marginTop="116dp"
-        android:layout_marginEnd="292dp"
+        android:id="@+id/imageView4"
+        android:layout_width="77dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/account_icon" />
 
     <ImageView
-        android:id="@+id/messageMessageImage"
-        android:layout_width="75dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="236dp"
-        android:layout_marginEnd="304dp"
+        android:id="@+id/selectedButton"
+        android:layout_width="106dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="276dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_square_24"
+        app:tint="@color/purple_200"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/messagesImage"
+        android:layout_width="60dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="296dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/message_icon" />
 
     <ImageView
-        android:id="@+id/appliMessageImage"
-        android:layout_width="77dp"
-        android:layout_height="71dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="328dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/applications_icon" />
-
-    <ImageView
-        android:id="@+id/offersMessageImage"
-        android:layout_width="72dp"
-        android:layout_height="82dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="224dp"
+        android:id="@+id/offersImage"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="320dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/offers_icon" />
 
     <ImageView
-        android:id="@+id/prefMessageImage"
-        android:layout_width="75dp"
-        android:layout_height="87dp"
-        android:layout_marginEnd="304dp"
-        android:layout_marginBottom="124dp"
+        android:id="@+id/applicationsImage"
+        android:layout_width="51dp"
+        android:layout_height="67dp"
+        android:layout_marginBottom="232dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/settings_icon" />
+        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/applications_icon" />
 
     <ImageView
-        android:id="@+id/infosMessageImage"
-        android:layout_width="92dp"
-        android:layout_height="79dp"
-        app:srcCompat="@drawable/info_icon"
-        tools:layout_editor_absoluteX="27dp"
-        tools:layout_editor_absoluteY="614dp" />
+        android:id="@+id/preferencesImage"
+        android:layout_width="59dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="156dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/settings_icon" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="277dp"
-        android:layout_height="434dp"
-        android:layout_marginTop="244dp"
-        android:layout_marginEnd="12dp"
-        android:background="@color/colorPrimary"
+        android:id="@+id/mymessagesview"
+        android:layout_width="312dp"
+        android:layout_height="465dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/purple_200"
+        android:backgroundTint="@color/purple_200"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.654" />
+
+
+    <TextView
+        android:id="@+id/UserDataText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="264dp"
+        android:text=""
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.717"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/informationImage"
+        android:layout_width="62dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="212dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/info_icon" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,17 +12,20 @@ public class Messages extends AppCompatActivity {
 
     ImageView mInfos, mPreferences, mOffers, mApplications, mMessages;
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "WrongViewCast"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messages);
 
-        mInfos = findViewById(R.id.infosMessageImage);
-        mPreferences = findViewById(R.id.prefMessageImage);
-        mOffers = findViewById(R.id.offersMessageImage);
-        mApplications = findViewById(R.id.appliMessageImage);
-        mMessages = findViewById(R.id.messageMessageImage);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.logo);
+
+        mInfos = findViewById(R.id.informationImage);
+        mPreferences = findViewById(R.id.preferencesImage);
+        mOffers = findViewById(R.id.offersImage);
+        mApplications = findViewById(R.id.applicationsImage);
+        mMessages = findViewById(R.id.messagesImage);
 
         mPreferences.setOnClickListener(new View.OnClickListener() {
             @Override

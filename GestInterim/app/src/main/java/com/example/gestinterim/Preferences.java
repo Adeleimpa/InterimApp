@@ -2,6 +2,7 @@ package com.example.gestinterim;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,16 +12,20 @@ public class Preferences extends AppCompatActivity {
 
     ImageView mInfos, mPreferences, mOffers, mApplications, mMessages;
 
+    @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preferences);
 
-        mInfos = findViewById(R.id.preferencesInfoImage);
-        mPreferences = findViewById(R.id.preferencesPreferencesImage);
-        mOffers = findViewById(R.id.preferencesOffersImage);
-        mApplications = findViewById(R.id.preferencesAppliImage);
-        mMessages = findViewById(R.id.preferencesMessagesImage);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.logo);
+
+        mInfos = findViewById(R.id.informationImage);
+        mPreferences = findViewById(R.id.preferencesImage);
+        mOffers = findViewById(R.id.offersImage);
+        mApplications = findViewById(R.id.applicationsImage);
+        mMessages = findViewById(R.id.messagesImage);
 
 
         mPreferences.setOnClickListener(new View.OnClickListener() {
