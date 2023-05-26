@@ -35,8 +35,7 @@ public class ConfirmationCode extends AppCompatActivity {
     Button validate, send_again, send_code;
     String phone;
     private FirebaseAuth mAuth;
-    private String mVerificationId;
-    private PhoneAuthProvider.ForceResendingToken mResendToken;
+    private String mVerificationCode;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +48,9 @@ public class ConfirmationCode extends AppCompatActivity {
         send_again = findViewById(R.id.sendAgainButton);
         send_code = findViewById(R.id.sendCodeButton);
 
-        Intent intent = getIntent();
-        phone = intent.getStringExtra("phone");
+        Bundle extras = getIntent().getExtras();
+        assert extras != null;
+        phone = extras.getString("phone");
 
         send_code.setOnClickListener(view -> {
                 StringBuilder tel = new StringBuilder();
@@ -66,8 +66,7 @@ public class ConfirmationCode extends AppCompatActivity {
                 mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                     @Override
                     public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-                        Intent intention = new Intent(ConfirmationCode.this, AllowLocationData.class);
-                        startActivity(intention);
+
                     }
 
                     @Override
@@ -86,6 +85,10 @@ public class ConfirmationCode extends AppCompatActivity {
 
         });
 
+        validate.setOnClickListener(view -> {
+            Intent intention = new Intent(ConfirmationCode.this, AllowLocationData.class);
+            startActivity(intention);
+        });
 
 
     }

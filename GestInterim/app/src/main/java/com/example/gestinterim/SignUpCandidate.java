@@ -137,7 +137,7 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
                 if (user != null) {
                     Intent ConfirmationCodeIntent = new Intent(SignUpCandidate.this, ConfirmationCode.class);
                     ConfirmationCodeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    ConfirmationCodeIntent.putExtra("phone", mPhoneEditText.toString());
+                    ConfirmationCodeIntent.putExtra("phone", mPhoneEditText.getText().toString());
                     startActivity(ConfirmationCodeIntent);
                     finish();
                 }
