@@ -36,6 +36,7 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseAuth mAuth;
     private ProgressDialog mAuthProgressDialog;
+    private PhoneAuthProvider.OnVerificationStateChangedCallbacks verificationCallbacks;
     private String mName;
     Button mCreateUserButton;
     EditText mFirstNameEditText, mLastNameEditText, mEmailEditText, mPasswordEditText, mConfirmPasswordEditText, mNationalityEditText, mCityEditText, mPhoneEditText;
@@ -72,6 +73,8 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
 
         onClick(mCreateUserButton);
         createAuthStateListener();
+
+
     }
 
     @Override
@@ -134,6 +137,7 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
                 if (user != null) {
                     Intent ConfirmationCodeIntent = new Intent(SignUpCandidate.this, ConfirmationCode.class);
                     ConfirmationCodeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    ConfirmationCodeIntent.putExtra("phone", mPhoneEditText.toString());
                     startActivity(ConfirmationCodeIntent);
                     finish();
                 }
@@ -172,43 +176,7 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
 
         if (view == mCreateUserButton) {
             createNewUser();
-            sendConfirmationCode();
         }
-    }
-
-    //Send confirmation code if new user
-    private void sendConfirmationCode(){
-        StringBuilder phoneNumber = new StringBuilder();
-        phoneNumber.append("+33 ");
-        String [] list = mPhoneEditText.getText().toString().split("");
-        for (int i = 0; i < mPhoneEditText.getText().toString().length()-1; i+=2) {
-            phoneNumber.append((String) (list[i] + list[i + 1]));
-            phoneNumber.append(" ");
-        }
-        Log.d(TAG, phoneNumber.toString());
-
-        mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-            @Override
-            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-                Intent ConfirmationCodeIntent = new Intent(SignUpCandidate.this, ConfirmationCode.class);
-                ConfirmationCodeIntent.putExtra("PhoneNumber", phoneNumber.toString());
-                startActivity(ConfirmationCodeIntent);
-            }
-
-            @Override
-            public void onVerificationFailed(@NonNull FirebaseException e) {
-
-            }
-        };
-
-        PhoneAuthOptions options =
-                PhoneAuthOptions.newBuilder(mAuth)
-                        .setPhoneNumber(String.valueOf(phoneNumber))
-                        .setTimeout(60L, TimeUnit.SECONDS)
-                        .setActivity(this)
-                        .setCallbacks(mCallbacks)
-                        .build();
-        PhoneAuthProvider.verifyPhoneNumber(options);
     }
 
     // Store user data in cloud firestore
