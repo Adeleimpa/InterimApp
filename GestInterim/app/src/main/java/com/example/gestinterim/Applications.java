@@ -7,10 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
-public class Applications extends AppCompatActivity {
+public class Applications extends AppCompatActivity implements View.OnClickListener{
 
     ImageView mInfos, mPreferences, mOffers, mApplications, mMessages;
+    TextView goToListInterims;
 
     @SuppressLint({"MissingInflatedId", "WrongViewCast"})
     @Override
@@ -26,6 +28,9 @@ public class Applications extends AppCompatActivity {
         mOffers = findViewById(R.id.offersImage);
         mApplications = findViewById(R.id.applicationsImage);
         mMessages = findViewById(R.id.messagesImage);
+
+        goToListInterims = findViewById(R.id.GoToListInterims);
+        goToListInterims.setOnClickListener(this);
 
         mPreferences.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,5 +81,14 @@ public class Applications extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == goToListInterims) {
+            Intent intent = new Intent(Applications.this, SuggestedOffersAroundYou.class);
+            startActivity(intent);
+            finish();
+        }
     }
 }

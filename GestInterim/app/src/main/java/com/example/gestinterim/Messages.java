@@ -10,12 +10,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Messages extends AppCompatActivity {
+public class Messages extends AppCompatActivity implements View.OnClickListener{
 
     ImageView mInfos, mPreferences, mOffers, mApplications, mMessages;
+    TextView goToListInterims;
 
     @SuppressLint({"MissingInflatedId", "WrongViewCast"})
     @Override
@@ -31,6 +33,9 @@ public class Messages extends AppCompatActivity {
         mOffers = findViewById(R.id.offersImage);
         mApplications = findViewById(R.id.applicationsImage);
         mMessages = findViewById(R.id.messagesImage);
+
+        goToListInterims = findViewById(R.id.GoToListInterims);
+        goToListInterims.setOnClickListener(this);
 
         mPreferences.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,5 +111,14 @@ public class Messages extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == goToListInterims) {
+            Intent intent = new Intent(Messages.this, SuggestedOffersAroundYou.class);
+            startActivity(intent);
+            finish();
+        }
     }
 }

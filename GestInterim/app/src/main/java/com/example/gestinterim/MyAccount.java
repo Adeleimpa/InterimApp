@@ -19,11 +19,12 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class MyAccount extends AppCompatActivity {
+public class MyAccount extends AppCompatActivity implements View.OnClickListener{
 
     private FirebaseAuth mAuth;
     TextView userDataTextView;
     ImageView mInfos, mPreferences, mOffers, mApplications, mMessages;
+    TextView goToListInterims;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -40,6 +41,9 @@ public class MyAccount extends AppCompatActivity {
         mOffers = findViewById(R.id.offersImage);
         mApplications = findViewById(R.id.applicationsImage);
         mMessages = findViewById(R.id.messagesImage);
+
+        goToListInterims = findViewById(R.id.GoToListInterims);
+        goToListInterims.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
@@ -152,5 +156,14 @@ public class MyAccount extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == goToListInterims) {
+            Intent intent = new Intent(MyAccount.this, SuggestedOffersAroundYou.class);
+            startActivity(intent);
+            finish();
+        }
     }
 }
