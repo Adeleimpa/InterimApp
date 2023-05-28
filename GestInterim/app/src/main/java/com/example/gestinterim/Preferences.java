@@ -87,7 +87,7 @@ public class Preferences extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onClick(View view) {
         if (view == goToListInterims) {
-            Intent intent = new Intent(Preferences.this, SuggestedOffersAroundYou.class);
+            Intent intent = new Intent(Preferences.this, OffersList.class);
             startActivity(intent);
             finish();
         }

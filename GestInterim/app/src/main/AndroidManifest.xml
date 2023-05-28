@@ -9,10 +9,9 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
-
-
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -24,6 +23,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GestInterim"
         tools:targetApi="31">
+        <activity
+            android:name=".OffersList"
+            android:exported="false" />
+        <activity
+            android:name=".PublishNewOffer"
+            android:exported="false" />
+        <activity
+            android:name=".Apply"
+            android:exported="false" />
         <activity
             android:name=".Offers"
             android:exported="false">

@@ -1,21 +1,31 @@
 package com.example.gestinterim;
 
-import androidx.appcompat.app.AppCompatActivity;
-import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.Manifest;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.IOException;
 import java.util.List;
@@ -23,97 +33,94 @@ import java.util.Locale;
 
 public class AllowLocationData extends AppCompatActivity {
 
-    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
-    private LocationManager locationManager;
-    private LocationListener locationListener;
+    LocationListener androidLocationListener;
+    TextView adress;
+    String city;
+    private FirebaseAuth mAuth;
 
-    TextView latitude, longitude, adresse;
-
-    @Override
+    @SuppressLint({"MissingInflatedId", "SetTextI18n"})
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_allow_location_data);
 
-        // Vérifiez si l'autorisation d'accès à la localisation a déjà été accordée
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-            // L'autorisation est déjà accordée
-            showToast("Autorisation déjà accordée");
-            startLocationUpdates();
-        } else {
-            // Demande d'autorisation à l'utilisateur
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                    LOCATION_PERMISSION_REQUEST_CODE);
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+        Button continuer = findViewById(R.id.continueButton);
+        adress = findViewById(R.id.viewAdress);
+        int LOCATION_REQUEST = 100;
+
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference docRef = db.collection("users").document(user.getEmail());
+
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+          @Override
+          public void onSuccess(DocumentSnapshot documentSnapshot) {
+              User user_data = documentSnapshot.toObject(User.class);
+              continuer.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View view) {
+
+                      Intent intention = new Intent(AllowLocationData.this, SuggestedOffersAroundYou.class);
+                      intention.putExtra("location", city);
+                      startActivity(intention);
+                  }
+
+              });
+          }
+        });
+
+
+
+        ActivityCompat.requestPermissions(AllowLocationData.this,
+                new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                Location loc;
+                loc = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                if (loc != null) {
+                    // Localisation disponible
+                    adress.setText("Vous étiez récemment ici : " + loc.getLatitude() + " / " + loc.getLongitude());
+                }
+            }
+        }else {
+            Toast.makeText(this, "Votre appareil n'est pas compatible !", Toast.LENGTH_SHORT).show();
         }
-    }
 
-    // Démarre les mises à jour de localisation
-    private void startLocationUpdates() {
-        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-        locationListener = new LocationListener() {
-            @Override
-            public void onLocationChanged(Location location) {
-                // La localisation de l'utilisateur a changé
-                double latitude = location.getLatitude();
-                double longitude = location.getLongitude();
-                showToast("Latitude : " + latitude + ", Longitude : " + longitude);
+        androidLocationListener = new LocationListener() {
+            public void onLocationChanged(Location loc) {
+                Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
+                List<Address> addresses = null;
+                try {
+                    addresses = geocoder.getFromLocation(loc.getLatitude(), loc.getLongitude(), 1);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                assert addresses != null;
+                city = addresses.get(0).getLocality();
+                adress.setText("Vous êtes actuellement à : "+ city);
+
             }
 
-            @Override
-            public void onStatusChanged(String provider, int status, Bundle extras) {
-            }
-
-            @Override
-            public void onProviderEnabled(String provider) {
-            }
-
-            @Override
-            public void onProviderDisabled(String provider) {
-            }
+            public void onStatusChanged(String provider, int status, Bundle extras) {}
+            public void onProviderEnabled(String provider) {}
+            public void onProviderDisabled(String provider) {}
         };
 
-        // Demande de mises à jour de localisation
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-        }
+        locationManager.requestLocationUpdates(
+                LocationManager.NETWORK_PROVIDER,
+                1000, // en millisecondes
+                1, // en mètres
+                androidLocationListener);
+
+
+    }
     }
 
-    // Récupère l'adresse ou le lieu à partir des coordonnées de localisation
-    private String getAddressFromLocation(double latitude, double longitude) {
-        Geocoder geocoder = new Geocoder(this, Locale.getDefault());
-        try {
-            List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
-            if (addresses != null && addresses.size() > 0) {
-                Address address = addresses.get(0);
-                return address.getAddressLine(0); // Récupère la première ligne d'adresse
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return "Lieu inconnu";
-    }
 
-    // Affiche un message Toast
-    private void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
 
-    // Arrête les mises à jour de localisation lorsque l'activité est en pause ou détruite
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (locationManager != null && locationListener != null) {
-            locationManager.removeUpdates(locationListener);
-        }
-    }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (locationManager != null && locationListener != null) {
-            locationManager.removeUpdates(locationListener);
-        }
-    }
-}
+
+

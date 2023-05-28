@@ -116,7 +116,7 @@ public class Messages extends AppCompatActivity implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         if (view == goToListInterims) {
-            Intent intent = new Intent(Messages.this, SuggestedOffersAroundYou.class);
+            Intent intent = new Intent(Messages.this, OffersList.class);
             startActivity(intent);
             finish();
         }

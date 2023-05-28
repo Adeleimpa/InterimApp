@@ -123,9 +123,10 @@ public class SignUpAgency extends AppCompatActivity implements View.OnClickListe
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    Intent intent = new Intent(SignUpAgency.this, MyAccount.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
+                    Intent ConfirmationCodeIntent = new Intent(SignUpAgency.this, ConfirmationCode.class);
+                    ConfirmationCodeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    ConfirmationCodeIntent.putExtra("phone", mPhoneEditText.getText().toString());
+                    startActivity(ConfirmationCodeIntent);
                     finish();
                 }
             }

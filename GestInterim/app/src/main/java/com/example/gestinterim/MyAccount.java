@@ -77,6 +77,16 @@ public class MyAccount extends AppCompatActivity implements View.OnClickListener
                             "\n\nPhone number: " + user_data.getTel() +
                             "\n\nCity: " + user_data.getCity() );
                 }
+
+                goToListInterims.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(MyAccount.this, OffersList.class);
+                        intent.putExtra("city", user_data.getCity());
+                        startActivity(intent);
+                        finish();
+                    }
+                });
             }
         });
 
@@ -161,7 +171,7 @@ public class MyAccount extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View view) {
         if (view == goToListInterims) {
-            Intent intent = new Intent(MyAccount.this, SuggestedOffersAroundYou.class);
+            Intent intent = new Intent(MyAccount.this, OffersList.class);
             startActivity(intent);
             finish();
         }

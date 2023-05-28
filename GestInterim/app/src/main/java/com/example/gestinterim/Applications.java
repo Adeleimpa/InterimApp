@@ -86,7 +86,7 @@ public class Applications extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         if (view == goToListInterims) {
-            Intent intent = new Intent(Applications.this, SuggestedOffersAroundYou.class);
+            Intent intent = new Intent(Applications.this, OffersList.class);
             startActivity(intent);
             finish();
         }
