@@ -86,10 +86,25 @@ public class Offers extends AppCompatActivity implements View.OnClickListener{
                           Intent intent = new Intent(Offers.this, PublishNewOffer.class);
                           intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                           startActivity(intent);
-                          finish();
+
                       }
                   });
                   linearLayout.addView(new_advert);
+
+                  Bundle receivedBundle = getIntent().getExtras();
+                  if(receivedBundle != null){
+                      String titre = receivedBundle.getString("title");
+                      TextView textView = new TextView(Offers.this);
+                      textView.setText("Titre :" + receivedBundle.getString("title") + "\n"+
+                                        "Entreprise :" + receivedBundle.get("company") + "\n" +
+                                        "Ville :" + receivedBundle.getString("city") + "\n" +
+                                        "Description :" + receivedBundle.getString("description") + "\n" +
+                                        "URL :" + receivedBundle.getString("url") + "\n");
+                      textView.setTextSize(14);
+                      textView.setTextColor(getResources().getColor(android.R.color.black));
+                      linearLayout.addView(textView);
+                  }
+
               }
           }
         });
@@ -100,7 +115,7 @@ public class Offers extends AppCompatActivity implements View.OnClickListener{
                 Intent intent = new Intent(Offers.this, Preferences.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
-                finish();
+
             }
         });
 
@@ -110,7 +125,7 @@ public class Offers extends AppCompatActivity implements View.OnClickListener{
                 Intent intent = new Intent(Offers.this, Messages.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
-                finish();
+
             }
         });
 
@@ -120,7 +135,7 @@ public class Offers extends AppCompatActivity implements View.OnClickListener{
                 Intent intent = new Intent(Offers.this, Applications.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
-                finish();
+
             }
         });
 
@@ -130,7 +145,7 @@ public class Offers extends AppCompatActivity implements View.OnClickListener{
                 Intent intent = new Intent(Offers.this, Offers.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
-                finish();
+
             }
         });
 

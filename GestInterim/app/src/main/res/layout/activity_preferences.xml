@@ -30,7 +30,7 @@
         android:backgroundTint="@color/light_purple"
         android:fontFamily="sans-serif-black"
         android:paddingTop="12dp"
-        android:paddingEnd="70dp"
+        android:paddingEnd="100dp"
         android:text="My account"
         android:textAlignment="viewEnd"
         android:textColor="#040303"
@@ -40,37 +40,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="77dp"
         android:layout_height="79dp"
         android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintHorizontal_bias="0.077"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/account_icon" />
 
-
     <ImageView
         android:id="@+id/messagesImage"
-        android:layout_width="45dp"
+        android:layout_width="32dp"
         android:layout_height="38dp"
-        android:layout_marginTop="304dp"
+        android:layout_marginTop="248dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/message_icon" />
 
     <ImageView
         android:id="@+id/offersImage"
-        android:layout_width="56dp"
-        android:layout_height="52dp"
-        android:layout_marginBottom="304dp"
+        android:layout_width="40dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="320dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.067"
+        app:layout_constraintHorizontal_bias="0.091"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/offers_icon" />
 
@@ -78,21 +78,21 @@
         android:id="@+id/applicationsImage"
         android:layout_width="39dp"
         android:layout_height="59dp"
-        android:layout_marginBottom="208dp"
+        android:layout_marginBottom="240dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/applications_icon" />
 
     <ImageView
         android:id="@+id/preferencesImage"
-        android:layout_width="50dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="124dp"
+        android:layout_width="43dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="160dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintHorizontal_bias="0.092"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/settings_icon" />
 
@@ -110,11 +110,11 @@
 
     <ImageView
         android:id="@+id/informationImage"
-        android:layout_width="48dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="208dp"
+        android:layout_width="37dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="180dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.077"
+        app:layout_constraintHorizontal_bias="0.104"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/info_icon" />

@@ -56,21 +56,21 @@ public class MyAccount extends AppCompatActivity implements View.OnClickListener
                 User user_data = documentSnapshot.toObject(User.class);
 
                 if(user_data.getType().equals("candidate")){
-                    userDataTextView.setText("First name: " + user_data.getFirstname() +
+                    userDataTextView.setText("My informations :" + "\n\n" + "First name: " + user_data.getFirstname() +
                             "\n\nLast name: " + user_data.getLastname() +
                             "\n\nEmail: " + user.getEmail() +
                             "\n\nPhone number: " + user_data.getTel() +
                             "\n\nCity: " + user_data.getCity() +
                             "\n\nNationality: " + user_data.getNationality());
                 }else if(user_data.getType().equals("employer")){
-                    userDataTextView.setText("Enterprise: " + user_data.getEnterpriseName() +
+                    userDataTextView.setText("My informations :" + "\n\n" +"Enterprise: " + user_data.getEnterpriseName() +
                             "\n\nService: " + user_data.getService() +
                             "\n\nNational number: " + user_data.getNational_nr() +
                             "\n\nEmail: " + user.getEmail() +
                             "\n\nPhone number: " + user_data.getTel() +
                             "\n\nCity: " + user_data.getCity() );
                 }else if(user_data.getType().equals("agency")){
-                    userDataTextView.setText("Agency: " + user_data.getAgencyName() +
+                    userDataTextView.setText("My informations" + "\n\n" +"Agency: " + user_data.getAgencyName() +
                             "\n\nService: " + user_data.getService() +
                             "\n\nNational number: " + user_data.getNational_nr() +
                             "\n\nEmail: " + user.getEmail() +
@@ -84,7 +84,7 @@ public class MyAccount extends AppCompatActivity implements View.OnClickListener
                         Intent intent = new Intent(MyAccount.this, OffersList.class);
                         intent.putExtra("city", user_data.getCity());
                         startActivity(intent);
-                        finish();
+
                     }
                 });
             }
@@ -96,7 +96,7 @@ public class MyAccount extends AppCompatActivity implements View.OnClickListener
                 Intent intent = new Intent(MyAccount.this, Preferences.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
-                finish();
+
             }
         });
 
@@ -106,7 +106,7 @@ public class MyAccount extends AppCompatActivity implements View.OnClickListener
                 Intent intent = new Intent(MyAccount.this, Messages.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
-                finish();
+
             }
         });
 
@@ -116,7 +116,7 @@ public class MyAccount extends AppCompatActivity implements View.OnClickListener
                 Intent intent = new Intent(MyAccount.this, Applications.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
-                finish();
+
             }
         });
 
@@ -126,7 +126,7 @@ public class MyAccount extends AppCompatActivity implements View.OnClickListener
                 Intent intent = new Intent(MyAccount.this, Offers.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
-                finish();
+
             }
         });
 
@@ -136,7 +136,7 @@ public class MyAccount extends AppCompatActivity implements View.OnClickListener
                 Intent intent = new Intent(MyAccount.this, MyAccount.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
-                finish();
+
             }
         });
 
@@ -165,7 +165,7 @@ public class MyAccount extends AppCompatActivity implements View.OnClickListener
         Intent intent = new Intent(MyAccount.this, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
-        finish();
+
     }
 
     @Override
@@ -173,7 +173,7 @@ public class MyAccount extends AppCompatActivity implements View.OnClickListener
         if (view == goToListInterims) {
             Intent intent = new Intent(MyAccount.this, OffersList.class);
             startActivity(intent);
-            finish();
+
         }
     }
 }

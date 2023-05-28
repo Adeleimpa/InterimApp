@@ -62,11 +62,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/message_icon" />
 
+
     <ImageView
         android:id="@+id/offersImage"
         android:layout_width="48dp"
         android:layout_height="41dp"
-        android:layout_marginBottom="336dp"
+        android:layout_marginBottom="296dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.099"
@@ -77,22 +78,21 @@
         android:id="@+id/applicationsImage"
         android:layout_width="44dp"
         android:layout_height="59dp"
-        android:layout_marginBottom="244dp"
+        android:layout_marginBottom="212dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.108"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/applications_icon" />
 
-
     <ImageView
         android:id="@+id/preferencesImage"
         android:layout_width="63dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="176dp"
+        android:layout_marginBottom="148dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintHorizontal_bias="0.103"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/settings_icon" />
 
