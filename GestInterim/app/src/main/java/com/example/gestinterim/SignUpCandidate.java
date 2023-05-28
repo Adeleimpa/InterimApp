@@ -105,8 +105,10 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
         
         boolean validEmail = isValidEmail(email);
         boolean validName = isValidName(name);
+        boolean validFirstName = isValidFirstName(first_name);
+        boolean validPhone = isValidPhone(tel);
         boolean validPassword = isValidPassword(password, confirmPassword);
-        if (!validEmail || !validName || !validPassword) return;
+        if (!validEmail || !validName || !validPassword || !validFirstName || !validPhone) return;
         
         mAuthProgressDialog.show();
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -195,9 +197,25 @@ public class SignUpCandidate extends AppCompatActivity implements View.OnClickLi
         return isGoodEmail;
     }
 
+    private boolean isValidFirstName(String name) {
+        if (name.equals("")) {
+            mFirstNameEditText.setError("Please enter your first name");
+            return false;
+        }
+        return true;
+    }
+
     private boolean isValidName(String name) {
         if (name.equals("")) {
-            mFirstNameEditText.setError("Please enter your name");
+            mLastNameEditText.setError("Please enter your name");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isValidPhone(String phone) {
+        if (phone.equals("")) {
+            mPhoneEditText.setError("Please enter your phone number");
             return false;
         }
         return true;
